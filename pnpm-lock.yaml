@@ -70,6 +70,24 @@ importers:
       tsconfig: link:../../packages/tsconfig
       typescript: 4.8.2
 
+  packages/dragger:
+    specifiers:
+      '@types/react': ^18.0.17
+      '@types/react-dom': ^18.0.6
+      eslint: ^7.32.0
+      eslint-config-custom: workspace:*
+      react: ^18.2.0
+      tsconfig: workspace:*
+      typescript: ^4.5.2
+    devDependencies:
+      '@types/react': 18.0.18
+      '@types/react-dom': 18.0.6
+      eslint: 7.32.0
+      eslint-config-custom: link:../eslint-config-custom
+      react: 18.2.0
+      tsconfig: link:../tsconfig
+      typescript: 4.8.2
+
   packages/eslint-config-custom:
     specifiers:
       eslint: ^7.23.0
