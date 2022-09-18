@@ -50,8 +50,13 @@ export const SelectorProvider = (props: SelectorProviderProps) => {
   const onDrop = (event: React.DragEvent<HTMLElement>) => {
     const currentId = event.dataTransfer.getData("dragStart");
 
-    const x = event.nativeEvent.pageX;
-    const y = event.nativeEvent.pageY;
+    // change in mouse position related to element that is being dragged
+    const changeX = event.dataTransfer.getData("changeX");
+    const changeY = event.dataTransfer.getData("changeY");
+
+    // new position of element = mouse position - change of mouse position
+    const x = event.nativeEvent.pageX - parseInt(changeX);
+    const y = event.nativeEvent.pageY - parseInt(changeY);
 
     const elementCurrent = document.getElementById(currentId);
     if (elementCurrent) {

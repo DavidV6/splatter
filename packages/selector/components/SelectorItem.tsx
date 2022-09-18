@@ -59,6 +59,13 @@ export const SelectorItem = (props: Props) => {
    */
   const onDragStart = (event: React.DragEvent<HTMLElement>) => {
     event.dataTransfer.setData("dragstart", event.currentTarget.id || "");
+    
+    // calculates the change of mouse position from element being dragged
+    const element = document.getElementById(event.currentTarget.id);
+    if (element) {
+      event.dataTransfer.setData("changeX", (event.nativeEvent.pageX - element.offsetLeft).toString());
+      event.dataTransfer.setData("changeY", (event.nativeEvent.pageY - element.offsetTop).toString());
+    }
   }
 
   /**
