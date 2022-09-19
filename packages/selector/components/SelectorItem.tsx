@@ -4,7 +4,8 @@ import { SelectorMode, SelectorNode } from '../types/SelectorTypes';
 
 interface Props extends PropsWithChildren {
   id?: string;
-  style?: CSSProperties,
+  selected?: boolean,
+  style?: CSSProperties;
 }
 
 export const SelectorItem = (props: Props) => {
@@ -121,6 +122,9 @@ export const SelectorItem = (props: Props) => {
       onDragOver={onDragOver}
       style={{
         flex: selectorContext.mode === "list" ? 1 : "unset",
+        // position: selectorContext.mode === "canvas" ? "absolute" : "relative",
+        // outline: "1px solid blue",
+        backgroundColor: props.selected ? "lightblue" : "inherit",
         ...props.style
       }}
       {...itemProps}
